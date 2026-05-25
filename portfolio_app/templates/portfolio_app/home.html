@@ -1,0 +1,609 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Karoki Gitonga — Full Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'portfolio_app/css/styles.css' %}">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+<div class="grid-overlay"></div>
+
+<div class="wrapper">
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="logo-icon">&lt;/&gt;</span>
+    <span class="logo-name">Brian Karoki Gitonga</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-icons">
+      <a href="https://github.com" class="nav-icon" target="_blank" title="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.57v-2c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.21.68.83.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com" class="nav-icon" target="_blank" title="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a href="mailto:brian@example.com" class="nav-icon" title="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      </a>
+    </div>
+    <a href="#" class="btn-cv">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download CV
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid">
+    <div class="hero-left fade-in">
+      <div class="hero-badge">Full Stack Web Developer · Software Engineer</div>
+      <h1 class="hero-title">
+        Transforming Ideas Into<br>
+        <span class="grad-text">Powerful Digital</span><br>
+        Solutions
+      </h1>
+      <p class="hero-bio">
+        I am Brian Karoki Gitonga, a Kenyan Full Stack Web Developer and Software Engineering enthusiast from Nyeri, passionate about building scalable web applications, solving real-world problems, and creating impactful digital systems through modern technology.
+      </p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="m8 21 4-4 4 4"/><path d="M12 17v4"/></svg>
+          View My Work
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
+          Contact Me
+        </a>
+      </div>
+      <div class="hero-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <span>Based in Nyeri, Kenya 🇰🇪</span>
+      </div>
+    </div>
+
+    <div class="hero-right fade-in tech-orbit" style="transition-delay: 0.2s">
+      <span class="orbit-icon">🌐 Django</span>
+      <span class="orbit-icon">🐍 Python</span>
+      <span class="orbit-icon">🗄️ PostgreSQL</span>
+      <span class="orbit-icon">⚡ JavaScript</span>
+      <span class="orbit-icon">🔧 REST APIs</span>
+      <div class="hero-portrait-card">
+        <div class="portrait-glow"></div>
+        <img src="{% static 'portfolio_app/images/brian-karoki-portrait.jpg' %}" alt="Brian Karoki Gitonga" class="hero-portrait">
+        <div class="portrait-scanline"></div>
+        <div class="portrait-badge top">Brian Karoki Gitonga</div>
+        <div class="portrait-badge bottom">Full Stack Developer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="section-inner fade-in" style="padding: 0 4%; max-width: 100%;">
+  <div class="stats-row" style="max-width:1200px;margin:0 auto;">
+    <div class="stat-card">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Projects Built</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">Technologies Learned</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">GitHub Repositories</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Real-world Systems</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-in">
+        <div class="about-img-placeholder about-photo-card">
+          <div class="img-corner tl"></div>
+          <div class="img-corner br"></div>
+          <img src="{% static 'portfolio_app/images/brian-karoki-about.jpg' %}" alt="Brian Karoki Gitonga" class="about-photo">
+          <div class="about-photo-caption">
+            <strong>Brian Karoki Gitonga</strong>
+            <span>Full Stack Developer</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content fade-in" style="transition-delay:0.15s">
+        <div class="section-tag">About Me</div>
+        <h2 class="section-title">Passionate About<br><span class="grad-text">Building & Innovation</span></h2>
+        <p>My name is Brian Karoki Gitonga, a passionate Full Stack Web Developer and Software Engineering enthusiast from Nyeri, Kenya. I am currently pursuing a Diploma in ICT at Mathenge Technical Training Institute (Mathenge TTI).</p>
+        <p>I enjoy solving real-world problems using technology and building scalable web systems that create meaningful impact. My focus lies in building efficient backend systems, intuitive frontend experiences, and integrated payment workflows.</p>
+        <div class="tags-list">
+          <span class="tag">Software Engineering</span>
+          <span class="tag">Web Development</span>
+          <span class="tag">Backend Systems</span>
+          <span class="tag">Databases</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Problem Solving</span>
+          <span class="tag">M-Pesa Integration</span>
+          <span class="tag">REST APIs</span>
+        </div>
+        <a href="#contact" class="btn-primary" style="width:fit-content">Let's Connect →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-tag">Tech Stack</div>
+      <h2 class="section-title">Technologies I <span class="grad-text">Work With</span></h2>
+      <p class="section-sub">A curated set of tools and technologies I use to bring ideas to life.</p>
+    </div>
+    <div class="skills-grid fade-in" style="transition-delay:0.2s">
+      <div class="skill-card"><span class="skill-icon">🌐</span><span class="skill-name">HTML5</span></div>
+      <div class="skill-card"><span class="skill-icon">🎨</span><span class="skill-name">CSS3</span></div>
+      <div class="skill-card"><span class="skill-icon">⚡</span><span class="skill-name">JavaScript</span></div>
+      <div class="skill-card"><span class="skill-icon">🐍</span><span class="skill-name">Python</span></div>
+      <div class="skill-card"><span class="skill-icon">🦄</span><span class="skill-name">Django</span></div>
+      <div class="skill-card"><span class="skill-icon">🗃️</span><span class="skill-name">SQL</span></div>
+      <div class="skill-card"><span class="skill-icon">🐘</span><span class="skill-name">PostgreSQL</span></div>
+      <div class="skill-card"><span class="skill-icon">🔀</span><span class="skill-name">Git</span></div>
+      <div class="skill-card"><span class="skill-icon">🐙</span><span class="skill-name">GitHub</span></div>
+      <div class="skill-card"><span class="skill-icon">📱</span><span class="skill-name">Responsive UI</span></div>
+      <div class="skill-card"><span class="skill-icon">🔌</span><span class="skill-name">REST APIs</span></div>
+      <div class="skill-card"><span class="skill-icon">💳</span><span class="skill-name">M-Pesa API</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-tag">What I Do</div>
+      <h2 class="section-title">Services I <span class="grad-text">Offer</span></h2>
+      <p class="section-sub">End-to-end development capabilities to power your digital vision.</p>
+    </div>
+    <div class="services-grid fade-in" style="transition-delay:0.2s">
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3 class="service-title">Full Stack Web Development</h3>
+        <p class="service-desc">Building scalable, high-performance web applications from frontend to backend with modern frameworks and best practices.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3 class="service-title">Backend Development</h3>
+        <p class="service-desc">Python Django APIs and robust backend architecture designed for scalability, security, and performance.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🗄️</div>
+        <h3 class="service-title">Database Design</h3>
+        <p class="service-desc">SQL & PostgreSQL optimization, data modeling, and efficient relational database architecture.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💳</div>
+        <h3 class="service-title">Payment Integration</h3>
+        <p class="service-desc">Secure M-Pesa payment system integration for seamless financial transactions and business automation.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🖥️</div>
+        <h3 class="service-title">System Development</h3>
+        <p class="service-desc">Custom systems — school management, voting platforms, employment portals — designed for real-world impact.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📐</div>
+        <h3 class="service-title">Responsive UI Development</h3>
+        <p class="service-desc">Modern, pixel-perfect frontend experiences that look stunning across all devices and screen sizes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="fade-in projects-heading">
+      <div class="section-tag">Portfolio</div>
+      <h2 class="section-title">Featured <span class="grad-text">Projects</span></h2>
+      <p class="section-sub">Real-world systems, scalable platforms, and problem-solving applications built using modern technologies.</p>
+    </div>
+    <div class="project-filters fade-in" aria-label="Project filters" style="transition-delay:0.1s">
+      <button class="filter-chip active" type="button" data-filter="All">All</button>
+      <button class="filter-chip" type="button" data-filter="Full Stack">Full Stack</button>
+      <button class="filter-chip" type="button" data-filter="Django">Django</button>
+      <button class="filter-chip" type="button" data-filter="Fintech">Fintech</button>
+      <button class="filter-chip" type="button" data-filter="Education">Education</button>
+      <button class="filter-chip" type="button" data-filter="Frontend">Frontend</button>
+      <button class="filter-chip" type="button" data-filter="Live Projects">Live Projects</button>
+    </div>
+    <div id="projects-grid" class="projects-grid fade-in" style="transition-delay:0.2s"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE & EDUCATION -->
+<section id="experience">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+      <div>
+        <div class="fade-in">
+          <div class="section-tag">Education</div>
+          <h2 class="section-title" style="font-size:32px">Academic <span class="grad-text">Journey</span></h2>
+        </div>
+        <div class="edu-card fade-in" style="transition-delay:0.2s;margin-top:30px">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <div class="edu-degree">Diploma in ICT</div>
+            <div class="edu-school">Mathenge Technical Training Institute</div>
+            <div class="edu-location">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7z"/></svg>
+              Nyeri, Kenya
+            </div>
+            <div class="edu-focus">
+              <span class="tag">Programming</span>
+              <span class="tag">Web Development</span>
+              <span class="tag">Database Management</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Software Engineering</span>
+              <span class="tag">System Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="fade-in" style="transition-delay:0.1s">
+          <div class="section-tag">Experience</div>
+          <h2 class="section-title" style="font-size:32px">Dev <span class="grad-text">Timeline</span></h2>
+        </div>
+        <div class="timeline fade-in" style="transition-delay:0.25s;margin-top:30px">
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-role">Full Stack Developer</div>
+              <div class="timeline-org">Faidi MMF — Live Project</div>
+              <div class="timeline-period">2024 – Present</div>
+              <div class="timeline-desc">Designed and built a live money market fund platform integrating M-Pesa payments, investment workflows, and admin dashboards.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-role">Backend Developer</div>
+              <div class="timeline-org">TVET Voting System</div>
+              <div class="timeline-period">2024</div>
+              <div class="timeline-desc">Built a secure digital voting platform with role-based access, real-time results, and full audit trails for institutional elections.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-card">
+              <div class="timeline-role">Full Stack Developer</div>
+              <div class="timeline-org">KaziLink Employment Platform</div>
+              <div class="timeline-period">2023 – 2024</div>
+              <div class="timeline-desc">Developed an employment matching platform with job posting, applicant management, and employer dashboards using Django and PostgreSQL.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GITHUB -->
+<section id="github">
+  <div class="section-inner">
+    <div class="github-wrap premium-github">
+      <div class="fade-in" style="text-align:center;margin-bottom:10px">
+        <div class="section-tag" style="justify-content:center">Open Source</div>
+        <h2 class="section-title" style="text-align:center">GitHub Activity & <span class="grad-text">Repositories</span></h2>
+        <p class="section-sub" style="margin:0 auto 40px;text-align:center">Explore my open-source work, full stack systems, and software engineering projects.</p>
+      </div>
+      <div class="github-dashboard fade-in" style="transition-delay:0.15s">
+        <div class="github-profile-card">
+          <div class="github-avatar">BK</div>
+          <div>
+            <div class="github-kicker">GitHub Username</div>
+            <h3>bkaroki45-cpu</h3>
+            <a href="https://github.com/bkaroki45-cpu" target="_blank" rel="noopener">github.com/bkaroki45-cpu</a>
+          </div>
+        </div>
+        <div class="github-stat-grid">
+          <div class="github-stat"><span>12+</span><small>Repositories</small></div>
+          <div class="github-stat"><span>900+</span><small>Contributions</small></div>
+          <div class="github-stat"><span>5</span><small>Active Projects</small></div>
+          <div class="github-stat"><span>7</span><small>Languages Used</small></div>
+        </div>
+      </div>
+      <div class="language-cloud fade-in" style="transition-delay:0.2s">
+        <span>Python</span>
+        <span>JavaScript</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Django</span>
+        <span>SQL</span>
+        <span>PostgreSQL</span>
+      </div>
+      <div class="github-graph fade-in" style="transition-delay:0.25s">
+        <div class="graph-header">
+          <span>Contribution Graph - 2026</span>
+          <span>Open-source pulse</span>
+        </div>
+        <div id="gh-contribution-grid"></div>
+        <div class="graph-legend">
+          <span>Less</span>
+          <i></i><i></i><i></i><i></i>
+          <span>More</span>
+        </div>
+      </div>
+      <div class="github-repos fade-in" style="transition-delay:0.3s">
+        <div class="repo-card">
+          <div class="repo-name">faidimmf-new</div>
+          <div class="repo-desc">Live Money Market Fund platform with M-Pesa integration and investment dashboard.</div>
+          <div class="repo-meta"><span class="repo-lang">Python</span><span>Django</span><span>Fintech</span></div>
+        </div>
+        <div class="repo-card">
+          <div class="repo-name">voting-system</div>
+          <div class="repo-desc">Secure digital voting platform for TVET institutions and organizational elections.</div>
+          <div class="repo-meta"><span class="repo-lang">Python</span><span>Django</span><span>Live</span></div>
+        </div>
+        <div class="repo-card">
+          <div class="repo-name">kazilink</div>
+          <div class="repo-desc">Smart employment platform connecting employers and job seekers across Kenya.</div>
+          <div class="repo-meta"><span class="repo-lang">Python</span><span>PostgreSQL</span><span>Jobs</span></div>
+        </div>
+        <div class="repo-card">
+          <div class="repo-name">MTTI-ICT-feedback-sytem</div>
+          <div class="repo-desc">Digital student feedback management system with secure submissions and dashboards.</div>
+          <div class="repo-meta"><span class="repo-lang">Python</span><span>Education</span><span>Reports</span></div>
+        </div>
+        <div class="repo-card">
+          <div class="repo-name">calc_brian</div>
+          <div class="repo-desc">Modern responsive calculator with elegant UI built with vanilla JS, HTML, CSS.</div>
+          <div class="repo-meta"><span class="repo-lang">JavaScript</span><span>Frontend</span><span>UI</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATABASE -->
+<section id="database">
+  <div class="section-inner">
+    <div class="fade-in">
+      <div class="section-tag">Data Layer</div>
+      <h2 class="section-title">Database <span class="grad-text">Expertise</span></h2>
+      <p class="section-sub">Designing efficient, optimized, and scalable database architectures.</p>
+    </div>
+    <div class="db-grid fade-in" style="transition-delay:0.2s">
+      <div class="db-card">
+        <div class="db-icon-wrap">🗃️</div>
+        <div class="db-name">SQL</div>
+        <div class="db-skills">
+          <div class="db-skill-row">
+            <span class="db-skill-label">Query Optimization</span>
+            <div class="db-bar-wrap"><div class="db-bar" style="width:90%"></div></div>
+            <span class="db-pct">90%</span>
+          </div>
+          <div class="db-skill-row">
+            <span class="db-skill-label">Schema Design</span>
+            <div class="db-bar-wrap"><div class="db-bar" style="width:85%"></div></div>
+            <span class="db-pct">85%</span>
+          </div>
+          <div class="db-skill-row">
+            <span class="db-skill-label">Joins & Relations</span>
+            <div class="db-bar-wrap"><div class="db-bar" style="width:88%"></div></div>
+            <span class="db-pct">88%</span>
+          </div>
+          <div class="db-skill-row">
+            <span class="db-skill-label">Data Modeling</span>
+            <div class="db-bar-wrap"><div class="db-bar" style="width:80%"></div></div>
+            <span class="db-pct">80%</span>
+          </div>
+        </div>
+      </div>
+      <div class="db-card">
+        <div class="db-icon-wrap">🐘</div>
+        <div class="db-name">PostgreSQL</div>
+        <div class="db-skills">
+          <div class="db-skill-row">
+            <span class="db-skill-label">Django ORM</span>
+            <div class="db-bar-wrap"><div class="db-bar" style="width:92%"></div></div>
+            <span class="db-pct">92%</span>
+          </div>
+          <div class="db-skill-row">
+            <span class="db-skill-label">Migrations</span>
+            <div class="db-bar-wrap"><div class="db-bar" style="width:88%"></div></div>
+            <span class="db-pct">88%</span>
+          </div>
+          <div class="db-skill-row">
+            <span class="db-skill-label">Indexing</span>
+            <div class="db-bar-wrap"><div class="db-bar" style="width:80%"></div></div>
+            <span class="db-pct">80%</span>
+          </div>
+          <div class="db-skill-row">
+            <span class="db-skill-label">Performance Tuning</span>
+            <div class="db-bar-wrap"><div class="db-bar" style="width:78%"></div></div>
+            <span class="db-pct">78%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MPESA -->
+<section id="mpesa">
+  <div class="section-inner">
+    <div class="mpesa-wrap fade-in">
+      <div class="mpesa-grid">
+        <div>
+          <div class="section-tag">Fintech</div>
+          <h2 class="section-title">M-Pesa Payment<br><span class="grad-text">Integration</span></h2>
+          <p style="color:var(--text-secondary);font-size:15px;line-height:1.75;margin-bottom:20px">
+            Experienced in integrating secure M-Pesa payment systems into web applications for seamless financial transactions and business automation using Safaricom's Daraja API.
+          </p>
+          <ul class="mpesa-features">
+            <li>STK Push (Lipa Na M-Pesa Online)</li>
+            <li>Payment Callback Handling</li>
+            <li>Transaction Status Queries</li>
+            <li>Business to Customer (B2C) Transfers</li>
+            <li>Secure Webhook Integration</li>
+            <li>Django REST Framework Integration</li>
+          </ul>
+        </div>
+        <div>
+          <div class="mpesa-ui">
+            <div class="mpesa-header">📱 M-Pesa STK Push — Transaction</div>
+            <div class="mpesa-row"><span class="mpesa-key">BusinessShortCode</span><span class="mpesa-val blue">174379</span></div>
+            <div class="mpesa-row"><span class="mpesa-key">TransactionType</span><span class="mpesa-val">CustomerPayBill</span></div>
+            <div class="mpesa-row"><span class="mpesa-key">Amount</span><span class="mpesa-val blue">KES 1,000</span></div>
+            <div class="mpesa-row"><span class="mpesa-key">PartyA</span><span class="mpesa-val">254712345678</span></div>
+            <div class="mpesa-row"><span class="mpesa-key">PhoneNumber</span><span class="mpesa-val">254712345678</span></div>
+            <div class="mpesa-row"><span class="mpesa-key">CallBackURL</span><span class="mpesa-val blue">/api/mpesa/callback</span></div>
+            <div class="mpesa-row"><span class="mpesa-key">AccountRef</span><span class="mpesa-val">FaidiMMF-001</span></div>
+            <div style="margin-top:16px;padding:10px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:8px">
+              <div class="mpesa-row" style="border:none;padding:0"><span class="mpesa-key">ResponseCode</span><span class="mpesa-val success">✓ 0 — Success</span></div>
+              <div class="mpesa-row" style="border:none;padding:4px 0 0"><span class="mpesa-key">CheckoutRequestID</span><span class="mpesa-val success">ws_CO_2024...</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="fade-in" style="text-align:center;margin-bottom:60px">
+      <div class="section-tag" style="justify-content:center">Get In Touch</div>
+      <h2 class="section-title" style="text-align:center">Let&apos;s Build Something<br><span class="grad-text">Amazing Together</span></h2>
+      <p class="section-sub" style="text-align:center;margin:0 auto">Have a project idea, collaboration, or opportunity? Let&apos;s connect.</p>
+    </div>
+    <div class="contact-grid premium-contact">
+      <div class="contact-info fade-in">
+        <a href="#contact" class="contact-item">
+          <div class="contact-item-icon">BK</div>
+          <div>
+            <div class="contact-item-label">Name</div>
+            <div class="contact-item-val">Brian Karoki Gitonga</div>
+          </div>
+        </a>
+        <a href="#contact" class="contact-item">
+          <div class="contact-item-icon">LOC</div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-val">Nyeri, Kenya 🇰🇪</div>
+          </div>
+        </a>
+        <a href="tel:0746990630" class="contact-item">
+          <div class="contact-item-icon">TEL</div>
+          <div>
+            <div class="contact-item-label">Phone / WhatsApp</div>
+            <div class="contact-item-val">0746990630</div>
+          </div>
+        </a>
+        <a href="mailto:bkaroki45@gmail.com" class="contact-item">
+          <div class="contact-item-icon">MAIL</div>
+          <div>
+            <div class="contact-item-label">Email 1</div>
+            <div class="contact-item-val">bkaroki45@gmail.com</div>
+          </div>
+        </a>
+        <a href="mailto:karokibrian748@gmail.com" class="contact-item">
+          <div class="contact-item-icon">ALT</div>
+          <div>
+            <div class="contact-item-label">Email 2</div>
+            <div class="contact-item-val">karokibrian748@gmail.com</div>
+          </div>
+        </a>
+        <a href="https://github.com/bkaroki45-cpu" class="contact-item" target="_blank" rel="noopener">
+          <div class="contact-item-icon">GH</div>
+          <div>
+            <div class="contact-item-label">GitHub</div>
+            <div class="contact-item-val">github.com/bkaroki45-cpu</div>
+          </div>
+        </a>
+      </div>
+      <form class="contact-form fade-in" style="transition-delay:0.2s" method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
+        {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+          <div class="message {{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Your full name" value="{{ form_data.name|default:'' }}" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="your@email.com" value="{{ form_data.email|default:'' }}" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <input type="text" name="subject" class="form-control" placeholder="Project inquiry, collaboration..." value="{{ form_data.subject|default:'' }}" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea name="message" class="form-control" placeholder="Tell me about your project..." required>{{ form_data.message|default:'' }}</textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="logo-name" style="font-size:14px;margin-bottom:4px">Brian Karoki Gitonga</div>
+      <div class="footer-text">© 2026 <span>Brian Karoki Gitonga</span> — Full Stack Developer · Software Engineer</div>
+    </div>
+    <div class="footer-socials">
+      <a href="#" class="social-btn" title="GitHub">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.1.82-.26.82-.57v-2c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.48.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.04.13 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.21.68.83.57C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="#" class="social-btn" title="LinkedIn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+      </a>
+      <a href="mailto:brian@example.com" class="social-btn" title="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+</div><!-- .wrapper -->
+
+<script src="{% static 'portfolio_app/js/main.js' %}"></script>
+</body>
+</html>
