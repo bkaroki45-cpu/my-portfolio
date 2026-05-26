@@ -70,7 +70,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files configuration
+
+# STATIC FILES SETTINGS
 STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
@@ -79,13 +80,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-STATICFILES_STORAGE = (
-    "whitenoise.storage.CompressedManifestStaticFilesStorage"
-)
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# GitHub settings
+
+# GITHUB CONFIG
 GITHUB_USERNAME = os.environ.get(
     "GITHUB_USERNAME",
     "bkaroki45-cpu"
