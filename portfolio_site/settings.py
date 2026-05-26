@@ -4,11 +4,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-local-portfolio-dev-key"
-DEBUG = True
+
+DEBUG = False
+
 ALLOWED_HOSTS = [
-    'my-portfolio-qrib.onrender.com',
-    '127.0.0.1',
-    'localhost'
+    "my-portfolio-qrib.onrender.com",
+    "127.0.0.1",
+    "localhost",
 ]
 
 INSTALLED_APPS = [
@@ -23,6 +25,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -60,12 +63,35 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = []
 
 LANGUAGE_CODE = "en-us"
+
 TIME_ZONE = "Africa/Nairobi"
+
 USE_I18N = True
+
 USE_TZ = True
 
-STATIC_URL = "static/"
+# Static files configuration
+STATIC_URL = "/static/"
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+STATICFILES_STORAGE = (
+    "whitenoise.storage.CompressedManifestStaticFilesStorage"
+)
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-GITHUB_USERNAME = os.environ.get("GITHUB_USERNAME", "bkaroki45-cpu")
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+# GitHub settings
+GITHUB_USERNAME = os.environ.get(
+    "GITHUB_USERNAME",
+    "bkaroki45-cpu"
+)
+
+GITHUB_TOKEN = os.environ.get(
+    "GITHUB_TOKEN",
+    ""
+)
