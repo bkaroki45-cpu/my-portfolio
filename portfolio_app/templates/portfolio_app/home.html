@@ -28,6 +28,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -100,20 +101,20 @@
 <div class="section-inner fade-in" style="padding: 0 4%; max-width: 100%;">
   <div class="stats-row" style="max-width:1200px;margin:0 auto;">
     <div class="stat-card">
-      <div class="stat-num">10+</div>
-      <div class="stat-label">Projects Built</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">12+</div>
-      <div class="stat-label">Technologies Learned</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">15+</div>
+      <div class="stat-num">{{ github.public_repos }}</div>
       <div class="stat-label">GitHub Repositories</div>
     </div>
     <div class="stat-card">
-      <div class="stat-num">5+</div>
-      <div class="stat-label">Real-world Systems</div>
+      <div class="stat-num">{{ github.languages|length }}</div>
+      <div class="stat-label">Technologies Used</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">{{ github.total_stars }}</div>
+      <div class="stat-label">Repository Stars</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">{{ github.followers }}</div>
+      <div class="stat-label">GitHub Followers</div>
     </div>
   </div>
 </div>
@@ -243,6 +244,44 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="fade-in testimonials-heading">
+      <div class="section-tag">Client Feedback</div>
+      <h2 class="section-title">What People <span class="grad-text">Say</span></h2>
+      <p class="section-sub">A few words from people who have experienced my work, delivery, and attention to detail.</p>
+    </div>
+    <div class="testimonials-grid fade-in" style="transition-delay:0.2s">
+      {% for testimonial in testimonials %}
+      <article class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <p class="testimonial-comment">{{ testimonial.comment }}</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">{{ testimonial.name|slice:":1" }}</div>
+          <div>
+            <h3>{{ testimonial.name }}</h3>
+            <span>Client Feedback</span>
+          </div>
+        </div>
+      </article>
+      {% empty %}
+      <article class="testimonial-card">
+        <div class="testimonial-mark">"</div>
+        <p class="testimonial-comment">Testimonials will appear here once you add them from the admin dashboard.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">B</div>
+          <div>
+            <h3>Brian Karoki</h3>
+            <span>Portfolio Update</span>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
 <!-- EXPERIENCE & EDUCATION -->
 <section id="experience">
   <div class="section-inner">
@@ -320,28 +359,29 @@
       </div>
       <div class="github-dashboard fade-in" style="transition-delay:0.15s">
         <div class="github-profile-card">
-          <div class="github-avatar">BK</div>
+          <div class="github-avatar">{{ github.avatar_initials }}</div>
           <div>
             <div class="github-kicker">GitHub Username</div>
-            <h3>bkaroki45-cpu</h3>
-            <a href="https://github.com/bkaroki45-cpu" target="_blank" rel="noopener">github.com/bkaroki45-cpu</a>
+            <h3>{{ github.username }}</h3>
+            <a href="{{ github.profile_url }}" target="_blank" rel="noopener">{{ github.profile_url }}</a>
           </div>
         </div>
         <div class="github-stat-grid">
-          <div class="github-stat"><span>12+</span><small>Repositories</small></div>
-          <div class="github-stat"><span>900+</span><small>Contributions</small></div>
-          <div class="github-stat"><span>5</span><small>Active Projects</small></div>
-          <div class="github-stat"><span>7</span><small>Languages Used</small></div>
+          <div class="github-stat"><span>{{ github.public_repos }}</span><small>Public Repositories</small></div>
+          <div class="github-stat"><span>{{ github.followers }}</span><small>Followers</small></div>
+          <div class="github-stat"><span>{{ github.total_stars }}</span><small>Total Stars</small></div>
+          <div class="github-stat"><span>{{ github.languages|length }}</span><small>Languages Used</small></div>
         </div>
       </div>
+      {% if github.error %}
+      <div class="github-sync-note fade-in">GitHub details could not refresh right now. The section will update automatically when GitHub is reachable.</div>
+      {% endif %}
       <div class="language-cloud fade-in" style="transition-delay:0.2s">
-        <span>Python</span>
-        <span>JavaScript</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>Django</span>
-        <span>SQL</span>
-        <span>PostgreSQL</span>
+        {% for language in github.languages %}
+        <span>{{ language }}</span>
+        {% empty %}
+        <span>GitHub Sync</span>
+        {% endfor %}
       </div>
       <div class="github-graph fade-in" style="transition-delay:0.25s">
         <div class="graph-header">
@@ -356,31 +396,24 @@
         </div>
       </div>
       <div class="github-repos fade-in" style="transition-delay:0.3s">
-        <div class="repo-card">
-          <div class="repo-name">faidimmf-new</div>
-          <div class="repo-desc">Live Money Market Fund platform with M-Pesa integration and investment dashboard.</div>
-          <div class="repo-meta"><span class="repo-lang">Python</span><span>Django</span><span>Fintech</span></div>
-        </div>
-        <div class="repo-card">
-          <div class="repo-name">voting-system</div>
-          <div class="repo-desc">Secure digital voting platform for TVET institutions and organizational elections.</div>
-          <div class="repo-meta"><span class="repo-lang">Python</span><span>Django</span><span>Live</span></div>
-        </div>
-        <div class="repo-card">
-          <div class="repo-name">kazilink</div>
-          <div class="repo-desc">Smart employment platform connecting employers and job seekers across Kenya.</div>
-          <div class="repo-meta"><span class="repo-lang">Python</span><span>PostgreSQL</span><span>Jobs</span></div>
-        </div>
-        <div class="repo-card">
-          <div class="repo-name">MTTI-ICT-feedback-sytem</div>
-          <div class="repo-desc">Digital student feedback management system with secure submissions and dashboards.</div>
-          <div class="repo-meta"><span class="repo-lang">Python</span><span>Education</span><span>Reports</span></div>
-        </div>
-        <div class="repo-card">
-          <div class="repo-name">calc_brian</div>
-          <div class="repo-desc">Modern responsive calculator with elegant UI built with vanilla JS, HTML, CSS.</div>
-          <div class="repo-meta"><span class="repo-lang">JavaScript</span><span>Frontend</span><span>UI</span></div>
-        </div>
+        {% for repo in github.repos %}
+        <a class="repo-card" href="{{ repo.url }}" target="_blank" rel="noopener">
+          <div class="repo-name">{{ repo.name }}</div>
+          <div class="repo-desc">{{ repo.description }}</div>
+          <div class="repo-meta">
+            <span class="repo-lang">{{ repo.language }}</span>
+            <span>{{ repo.stars }} stars</span>
+            <span>{{ repo.forks }} forks</span>
+            {% if repo.updated %}<span>Updated {{ repo.updated }}</span>{% endif %}
+          </div>
+        </a>
+        {% empty %}
+        <a class="repo-card" href="{{ github.profile_url }}" target="_blank" rel="noopener">
+          <div class="repo-name">GitHub repositories</div>
+          <div class="repo-desc">Live repositories will appear here after GitHub responds.</div>
+          <div class="repo-meta"><span class="repo-lang">GitHub</span><span>Live sync</span></div>
+        </a>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -604,6 +637,7 @@
 
 </div><!-- .wrapper -->
 
+{{ project_cards|json_script:"project-data" }}
 <script src="{% static 'portfolio_app/js/main.js' %}"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-﻿from pathlib import Path
+import os
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -61,3 +62,6 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+GITHUB_USERNAME = os.environ.get("GITHUB_USERNAME", "bkaroki45-cpu")
+GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")

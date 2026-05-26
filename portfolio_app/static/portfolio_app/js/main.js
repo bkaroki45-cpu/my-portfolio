@@ -76,7 +76,7 @@ function animCursor() {
   requestAnimationFrame(animCursor);
 }
 animCursor();
-document.querySelectorAll('a,button,.skill-card,.project-card').forEach(el => {
+document.querySelectorAll('a,button,.skill-card,.project-card,.testimonial-card').forEach(el => {
   el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; ring.style.transform = 'scale(1.5)'; });
   el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; });
 });
@@ -93,126 +93,9 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // DATA-DRIVEN PROJECT SHOWCASE
-// Add every new project inside this projects array.
-// The card, filters, layout, hover effects, and responsive grid update automatically.
-const projects = [
-  {
-    title: 'Faidi MMF',
-    status: 'LIVE PROJECT',
-    featured: true,
-    highlight: 'M-Pesa Integrated',
-    description: 'A professional Money Market Fund (MMF) platform designed for investment management and digital financial services.',
-    features: [
-      'Secure financial workflows and backend architecture',
-      'M-Pesa payment integration expertise',
-      'Investment features with responsive user dashboard',
-      'Modern fintech UI for digital financial services'
-    ],
-    techStack: ['Python', 'Django', 'PostgreSQL', 'HTML', 'CSS', 'JavaScript'],
-    categories: ['All', 'Full Stack', 'Django', 'Fintech', 'Live Projects'],
-    github: 'https://github.com/bkaroki45-cpu/faidimmf-new.git',
-    live: 'https://www.faidii.com/',
-    liveLabel: 'View Live Site',
-    githubLabel: 'GitHub Repository',
-    visual: 'fintech',
-    metric: 'KES'
-  },
-  {
-    title: 'TVET & Organization Voting System',
-    status: 'LIVE & DEPLOYED',
-    description: 'A secure online voting system designed for TVET institutions, schools, organizations, and elections management.',
-    features: [
-      'Secure authentication and admin dashboard',
-      'Candidate management and election setup',
-      'Live voting workflow with results management'
-    ],
-    techStack: ['Django', 'Python', 'PostgreSQL', 'HTML', 'CSS', 'JavaScript'],
-    categories: ['All', 'Full Stack', 'Django', 'Education', 'Live Projects'],
-    github: 'https://github.com/bkaroki45-cpu/voting-system.git',
-    live: 'https://voting-system-s9kz.onrender.com',
-    liveLabel: 'Live Demo',
-    githubLabel: 'GitHub Repo',
-    visual: 'civic',
-    metric: 'VOTE'
-  },
-  {
-    title: 'KaziLink',
-    status: 'FULL STACK PLATFORM',
-    description: 'A modern employment platform connecting employers and job seekers for every type of job opportunity.',
-    features: [
-      'Job posting and job discovery workflows',
-      'Employer dashboard and applicant management',
-      'User authentication with modern recruitment UI'
-    ],
-    techStack: ['Django', 'PostgreSQL', 'JavaScript', 'HTML', 'CSS'],
-    categories: ['All', 'Full Stack', 'Django'],
-    github: 'https://github.com/bkaroki45-cpu/kazilink.git',
-    live: '',
-    liveLabel: 'Live Demo',
-    githubLabel: 'GitHub Repo',
-    visual: 'recruitment',
-    metric: 'JOBS'
-  },
-  {
-    title: 'MTTI ICT Feedback System',
-    status: 'SYSTEM DEVELOPMENT',
-    description: 'A digital feedback management system developed for educational institutions to improve communication and collect student insights efficiently.',
-    features: [
-      'Feedback submission and secure responses',
-      'Structured reporting for student insights',
-      'School management support workflows'
-    ],
-    techStack: ['Django', 'Python', 'PostgreSQL', 'HTML', 'CSS'],
-    categories: ['All', 'Full Stack', 'Django', 'Education'],
-    github: 'https://github.com/bkaroki45-cpu/MTTI-ICT-feedback-sytem.git',
-    live: '',
-    liveLabel: 'Live Demo',
-    githubLabel: 'GitHub Repo',
-    visual: 'education',
-    metric: 'ICT'
-  },
-  {
-    title: 'Brian Calculator',
-    status: 'FRONTEND PROJECT',
-    description: 'A responsive calculator application built using frontend technologies with clean UI and interactive functionality.',
-    features: [
-      'Arithmetic calculations',
-      'Responsive interface',
-      'Minimal futuristic calculator preview'
-    ],
-    techStack: ['HTML', 'CSS', 'JavaScript'],
-    categories: ['All', 'Frontend'],
-    github: 'https://github.com/bkaroki45-cpu/calc_brian.git',
-    live: '',
-    liveLabel: 'Live Demo',
-    githubLabel: 'GitHub Repo',
-    visual: 'calculator',
-    metric: 'CALC'
-  }
-  /*
-  ,
-  {
-    title: 'Your New Project Name',
-    status: 'IN DEVELOPMENT',
-    featured: false,
-    highlight: '',
-    description: 'Short description of what the project does.',
-    features: [
-      'Main feature one',
-      'Main feature two',
-      'Main feature three'
-    ],
-    techStack: ['Django', 'Python', 'PostgreSQL', 'HTML', 'CSS', 'JavaScript'],
-    categories: ['All', 'Full Stack', 'Django'],
-    github: 'https://github.com/bkaroki45-cpu/your-repo.git',
-    live: '',
-    liveLabel: 'Live Demo',
-    githubLabel: 'GitHub Repo',
-    visual: 'default',
-    metric: 'APP'
-  }
-  */
-];
+// Project cards are managed in the Django admin and injected into this page as JSON.
+const projectDataEl = document.getElementById('project-data');
+const projects = projectDataEl ? JSON.parse(projectDataEl.textContent) : [];
 
 function createProjectVisual(project) {
   const accentMap = {
@@ -360,10 +243,11 @@ if (heroTitle) {
 // COUNTER ANIMATION
 function animateCounter(el, target) {
   let current = 0;
+  const suffix = el.dataset.suffix || '';
   const inc = target / 60;
   const timer = setInterval(() => {
     current = Math.min(current + inc, target);
-    el.textContent = Math.floor(current) + '+';
+    el.textContent = Math.floor(current) + suffix;
     if (current >= target) clearInterval(timer);
   }, 20);
 }
